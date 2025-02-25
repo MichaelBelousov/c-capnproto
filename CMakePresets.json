@@ -42,11 +42,7 @@
     },
     {
       "name": "ci-host-windows_x86",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_MAKE_PROGRAM": "$env{DKSDK_NINJA_PROGRAM}",
-        "ENV-DKSDK_NINJA_PROGRAM": "Set the environment variable DKSDK_NINJA_PROGRAM to the path to ninja.exe"
-      }
+      "hidden": true
     },
     {
       "name": "ci-target-windows_x86",
@@ -59,11 +55,7 @@
     },
     {
       "name": "ci-host-windows_x86_64",
-      "hidden": true,
-      "cacheVariables": {
-        "CMAKE_MAKE_PROGRAM": "$env{DKSDK_NINJA_PROGRAM}",
-        "ENV-DKSDK_NINJA_PROGRAM": "Set the environment variable DKSDK_NINJA_PROGRAM to the path to ninja.exe"
-      }
+      "hidden": true
     },
     {
       "name": "ci-target-windows_x86_64",
@@ -294,7 +286,10 @@
     {
       "name": "ci-tests",
       "inherits": "ci-tests-build",
-      "targets": ["all"]
+      "targets": [
+        "capnpc-c",
+        "CapnC_Runtime-Shared", "CapnC_Runtime-Static", "CapnC_Runtime-StaticExports", "CapnC_Runtime"
+      ]
     }
   ],
   "testPresets": [

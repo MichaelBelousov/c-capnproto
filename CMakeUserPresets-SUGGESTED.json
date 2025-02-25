@@ -63,24 +63,6 @@
           ]
         }
       }
-    },
-    {
-      "name": "dev-Windows64-with-env-ninja",
-      "inherits": [
-        "dev-Windows64"
-      ],
-      "cacheVariables": {
-        "CMAKE_MAKE_PROGRAM": "$env{DKSDK_NINJA_PROGRAM}",
-        "CMAKE_MAKE_PROGRAM_REASON": "Set DKSDK_NINJA_PROGRAM environment variable to specify ninja.exe"
-      },
-      "displayName": "Dev Windows 64-bit + env DKSDK_NINJA_PROGRAM",
-      "vendor": {
-        "microsoft.com/VisualStudioSettings/CMake/1.0": {
-          "hostOS": [
-            "Windows"
-          ]
-        }
-      }
     }
   ]
 }

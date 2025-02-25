@@ -33,26 +33,28 @@ git clone https://gitlab.com/dkml/ext/c-capnproto.git
 cd c-capnproto
 cmake --preset=ci-linux_x86_64
 cmake --build --preset=ci-tests
-cmake --install build
+cmake --install build --prefix change-the-install-directory
 ```
-
-Use `cmake --install build --prefix /some/where/else` to change the installation directory.
 
 ## Building on Windows
 
-You will need Visual Studio 2019 installed. Other versions of Visual Studio may work; they simply haven't been tested.
-
-Once you have Visual Studio, run the `x64 Native Tools Command Prompt for VS 2019` and type the following:
+You will need Visual Studio 2019 or Visual Studio 2022 installed.
+The smaller and more freely licensed "Visual Studio Build Tools 2019"
+will work.
 
 ```sh
 git clone https://gitlab.com/dkml/ext/c-capnproto.git
 cd c-capnproto
-cmake --preset=ci-windows_x86_64
+
+# Or: cmake -G "Visual Studio 16 2019" --preset=ci-windows_x86_64
+cmake -G "Visual Studio 17 2022" --preset=ci-windows_x86_64
+
 cmake --build --preset=ci-tests
-cmake --install build
+cmake --install build --prefix change-the-install-directory
 ```
 
-Use `cmake --install build --prefix some/where/else` to change the installation directory.
+Advanced: You can use `-G Ninja` if you have Ninja installed and you run the above commands
+with the `x64 Native Tools Command Prompt for VS 2019` (or VS 2022).
 
 ## Building on other platforms
 
@@ -61,18 +63,16 @@ Use `cmake --install build --prefix some/where/else` to change the installation 
 /work $ cd c-capnproto
 /work/c-capnproto $ cmake -B ../build -DC_CAPNPROTO_ENABLE_INSTALL=ON -DBUILD_TESTING=OFF
 /work/c-capnproto $ cmake --build ../build
-/work/c-capnproto $ cmake --install ../build
+/work/c-capnproto $ cmake --install ../build --prefix ../change-the-install-directory
 -- Install configuration: ""
 -- Install configuration: ""
--- Installing: /usr/local/lib64/libCapnC_Runtime.so
--- Installing: /usr/local/bin/capnpc-c
--- Set runtime path of "/usr/local/bin/capnpc-c" to ""
--- Installing: /usr/local/lib64/cmake/CapnC/CapnCConfig.cmake
--- Installing: /usr/local/lib64/cmake/CapnC/CapnCConfig-noconfig.cmake
--- Installing: /usr/local/include/capnp_c.h
+-- Installing: /work/change-the-install-directory/lib64/libCapnC_Runtime.so
+-- Installing: /work/change-the-install-directory/bin/capnpc-c
+-- Set runtime path of "/work/change-the-install-directory/bin/capnpc-c" to ""
+-- Installing: /work/change-the-install-directory/lib64/cmake/CapnC/CapnCConfig.cmake
+-- Installing: /work/change-the-install-directory/lib64/cmake/CapnC/CapnCConfig-noconfig.cmake
+-- Installing: /work/change-the-install-directory/include/capnp_c.h
 ```
-
-Use `cmake --install ../build --prefix /some/where/else` to change the installation directory.
 
 ## Usage
 

@@ -39,3 +39,4 @@ subprojects/packagecache
 /.ci/
 
 /CMakeUserPresets.json
+/change-the-install-directory/
