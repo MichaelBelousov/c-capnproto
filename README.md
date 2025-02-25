@@ -33,7 +33,10 @@ git clone https://gitlab.com/dkml/ext/c-capnproto.git
 cd c-capnproto
 cmake --preset=ci-linux_x86_64
 cmake --build --preset=ci-tests
+cmake --install build
 ```
+
+Use `cmake --install build --prefix /some/where/else` to change the installation directory.
 
 ## Building on Windows
 
@@ -46,7 +49,30 @@ git clone https://gitlab.com/dkml/ext/c-capnproto.git
 cd c-capnproto
 cmake --preset=ci-windows_x86_64
 cmake --build --preset=ci-tests
+cmake --install build
 ```
+
+Use `cmake --install build --prefix some/where/else` to change the installation directory.
+
+## Building on other platforms
+
+```console
+/work $ git clone https://gitlab.com/dkml/ext/c-capnproto.git
+/work $ cd c-capnproto
+/work/c-capnproto $ cmake -B ../build -DC_CAPNPROTO_ENABLE_INSTALL=ON -DBUILD_TESTING=OFF
+/work/c-capnproto $ cmake --build ../build
+/work/c-capnproto $ cmake --install ../build
+-- Install configuration: ""
+-- Install configuration: ""
+-- Installing: /usr/local/lib64/libCapnC_Runtime.so
+-- Installing: /usr/local/bin/capnpc-c
+-- Set runtime path of "/usr/local/bin/capnpc-c" to ""
+-- Installing: /usr/local/lib64/cmake/CapnC/CapnCConfig.cmake
+-- Installing: /usr/local/lib64/cmake/CapnC/CapnCConfig-noconfig.cmake
+-- Installing: /usr/local/include/capnp_c.h
+```
+
+Use `cmake --install ../build --prefix /some/where/else` to change the installation directory.
 
 ## Usage
 
@@ -164,3 +190,5 @@ a while:
 * [liamstask's fork](https://github.com/liamstask/c-capnproto)
 * [baruch's fork](https://github.com/baruch/c-capnproto)
 * [kylemanna's fork](https://github.com/kylemanna/c-capnproto)
+
+This project (`dkml/ext/c-capnproto`) is a continuation of `opensourcerouting/c-capnproto`.
