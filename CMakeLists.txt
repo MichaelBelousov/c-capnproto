@@ -19,6 +19,9 @@ endif()
 # Stop noise if CXX compiler is set.
 set(ignoreAndAvoidCMakeUnusedWarning "${CMAKE_CXX_COMPILER}")
 
+# Do not make installing c-capnproto do an auto install of gtest
+set(INSTALL_GTEST OFF)
+
 # Boilerplate DK CMAKE PROJ 2023-05-17.1
 if(APPLE)
     set(CMAKE_MACOSX_RPATH OFF)
