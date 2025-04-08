@@ -146,6 +146,8 @@ target_link_libraries(capnpc-c CapnC::Runtime)
 target_include_directories(capnpc-c
         PRIVATE lib)        
 
+include(GNUInstallDirs)
+
 # Boilerplate DK CMAKE PROJ 2023-05-17.3
 if(BUILD_SHARED_LIBS)
     if(APPLE)
