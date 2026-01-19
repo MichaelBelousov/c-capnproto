@@ -6,6 +6,7 @@ pub fn build(b: *std.Build) void {
 
     const capnp_mod = b.addModule("capnp", .{
         .target = target,
+        .optimize = optimize,
         .link_libc = true, // FIXME: try to remove?
     });
 
@@ -22,6 +23,7 @@ pub fn build(b: *std.Build) void {
 
     const capnpc_mod = b.addModule("capnpc", .{
         .target = target,
+        .optimize = optimize,
         .link_libc = true, // FIXME: try to remove?
     });
 
