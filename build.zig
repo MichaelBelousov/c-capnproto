@@ -34,7 +34,6 @@ pub fn build(b: *std.Build) void {
         .language = .c,
     });
     capnpc_mod.addIncludePath(b.path("./lib/"));
-    capnpc_mod.addIncludePath(b.path("./compiler/"));
 
     const libcapnpc = b.addLibrary(.{
         .linkage = .static,
