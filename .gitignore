@@ -40,3 +40,7 @@ subprojects/packagecache
 
 /CMakeUserPresets.json
 /change-the-install-directory/
+
+# zig
+.zig-cache
+zig-out
